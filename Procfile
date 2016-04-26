@@ -1,0 +1,1 @@
+web: build/install/jschema-example/bin/jschema-example
