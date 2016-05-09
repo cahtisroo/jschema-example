@@ -1,10 +1,44 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 import static spark.Spark.*;
 
 public class App {
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
-        get("/hello", (req, res) -> "Hello Heroku World");
+        get("/", (req, res) -> {
+            String ticker = req.queryParams( "ticker" );
+            String result = "";
+            if(ticker != null)  {
+                String urlStr = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+ticker+"%22)%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json";
+                result = getContent( urlStr );
+            }  else {
+                ticker = "";
+            }
+            return "<html><body><h1>Enter a stock ticker:</h1><form><input type='text' name='ticker' value='" + ticker + "'/><button>Submit</button></form><hr/><pre>" + result + "</pre></body></html>";
+        } );
+    }
+
+    private static String getContent( String urlStr ) throws IOException
+    {
+        String result;URL url = new URL( urlStr );
+        InputStream in = (InputStream)url.getContent();
+        StringBuilder sb = new StringBuilder();
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        String read;
+
+        while((read=br.readLine()) != null) {
+            //System.out.println(read);
+            sb.append(read);
+        }
+
+        br.close();
+        result =  sb.toString();
+        return result;
     }
 
     static int getHerokuAssignedPort() {
