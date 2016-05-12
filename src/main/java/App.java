@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 import static spark.Spark.*;
+Spark.staticFileLocation("/public");
 
 public class App {
 
@@ -30,6 +31,7 @@ public class App {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String read;
+        String ex;
 
         while((read=br.readLine()) != null) {
             //System.out.println(read);
