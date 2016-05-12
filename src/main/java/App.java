@@ -10,7 +10,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
 
     public static void main(String[] args) {
-        staticFileLocation("/public");
+        staticFileLocation("/public/");
         port(getHerokuAssignedPort());
         get("/", (req, res) -> {
             String ticker = req.queryParams( "ticker" );
@@ -21,10 +21,10 @@ public class App {
             }  else {
                 ticker = "";
             }
-            return "<html><body><h1>Enter a stock ticker:</h1><form><input type='text' name='ticker' value='" + ticker + "'/><button>Submit</button></form><hr/><pre>" + result + "</pre></body></html>";
+            return "<html><link href=\"public/style.css\" rel=\"stylesheet\" type=\"text/css\"><body><h1>Enter a stock ticker:</h1><form><input type='text' name='ticker' value='" + ticker + "'/><button>Submit</button></form><hr/><pre>" + result + "</pre></body></html>";
         } );
     }
-    
+
 
     private static String getContent( String urlStr ) throws IOException
     {
