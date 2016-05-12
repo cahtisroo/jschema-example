@@ -10,7 +10,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
 
     public static void main(String[] args) {
-        staticFileLocation("/resources/public");
+        Spark.staticFileLocation("/resources/public");
         port(getHerokuAssignedPort());
         get("/", (req, res) -> {
             String ticker = req.queryParams( "ticker" );
