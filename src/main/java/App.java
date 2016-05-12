@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 import static spark.Spark.*;
-Spark.staticFileLocation("/public");
+import static spark.Spark.staticFileLocation;
 
 public class App {
 
@@ -23,6 +23,11 @@ public class App {
             return "<html><body><h1>Enter a stock ticker:</h1><form><input type='text' name='ticker' value='" + ticker + "'/><button>Submit</button></form><hr/><pre>" + result + "</pre></body></html>";
         } );
     }
+
+    public class StaticResources{                      //get css file here...?
+        staticFileLocation("/public");
+    }
+
 
     private static String getContent( String urlStr ) throws IOException
     {
