@@ -28,7 +28,8 @@ public class App {
 
     private static String getContent( String urlStr ) throws IOException
     {
-        String result;URL url = new URL( urlStr );
+        String result;
+        URL url = new URL( urlStr );
         InputStream in = (InputStream)url.getContent();
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
