@@ -15,4 +15,7 @@ input[type=text]{
 
 .tickerBox{
 	width: 300px;
+	height: 100px;
+	padding: 10px;
+	border-radius: 25px;
 }
