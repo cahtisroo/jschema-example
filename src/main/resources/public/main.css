@@ -13,13 +13,17 @@ input[type=text]{
 	font-size: 25px;
 }
 
-.submitButton:hover{
+.submitButton{
 	border: none;
-	background-color: #4CAF50;
 	border-radius: 12px;
 	height: 35px;
-	transition-duration: 0.4s;
-	
+	background-color: #4CAF50;
+}
+
+.submitButton:hover{
+	background-color: #4CAF50;
+	color: white;
+	transition-duration: 0.4s;	
 }
 
 
