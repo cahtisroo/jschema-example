@@ -6,3 +6,13 @@ h1{
 	color: red;
 
 }
+
+input[type=text]{
+	position: relative;
+	border: 1px solid
+	font-size: 25px;
+}
+
+.tickerBox{
+	width: 300px;
+}
