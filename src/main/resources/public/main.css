@@ -8,6 +8,7 @@ h1{
 }
 
 input[type=text]{
+	outline: none;
 	position: relative;
 	border: 1px solid
 	font-size: 25px;
