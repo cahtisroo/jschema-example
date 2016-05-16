@@ -14,16 +14,18 @@ input[type=text]{
 }
 
 .submitButton{
-	border: 1px solid;
+	border: none;
 	border-radius: 12px;
 	height: 35px;
 	background-color: white;
+	cursor: pointer;
 }
 
 .submitButton:hover{
 	background-color: #4CAF50;
 	color: white;
-	transition-duration: 0.4s;	
+	transition-duration: 0.4s;
+	cursor: pointer;	
 }
 
 
