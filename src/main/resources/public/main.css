@@ -3,8 +3,13 @@
 
 h1{
 	font-size: 20px;
-	color: red;
+	color: black;
+}
 
+h1.sansserif{
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
 }
 
 input[type=text]{
