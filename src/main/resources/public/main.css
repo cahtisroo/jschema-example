@@ -14,7 +14,7 @@ h1.sansserif{
 
 input[type=text]{
 	outline: none;
-	position: relative;
+	position: static;
 	border: 1px solid
 	font-size: 25px;
 }
