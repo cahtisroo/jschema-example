@@ -14,7 +14,7 @@ input[type=text]{
 }
 
 .submitButton{
-	border: none;
+	border: 1px solid;
 	border-radius: 12px;
 	height: 35px;
 	background-color: white;
