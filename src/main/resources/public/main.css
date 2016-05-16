@@ -19,3 +19,22 @@ input[type=text]{
 	padding: 2px;
 	border-radius: 15px;
 }
+
+
+
+select,textarea,input.title,input.text,input[type=password],input[type=text] {
+    background:#fff;
+    border:1px solid #e0e0e0 !important
+}
+
+select:focus,textarea:focus,input.title:focus,input.text:focus,input[type=password]:focus,input[type=text]:focus {
+    border-color:#666
+}
+
+label,input.title,input.text,input[type=password],input[type=text],textarea {
+    padding:12px
+}
+
+label,input.title,input.text,input[type=password],input[type=text] {
+    line-height:1.2
+}
