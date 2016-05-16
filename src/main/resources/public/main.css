@@ -17,6 +17,7 @@ input[type=text]{
 	border-radius: 8px;
 	transition-duration: 0.4s;
 	background-color: #4CSF50;
+	color: white;
 	height: 35px;
 	
 }
