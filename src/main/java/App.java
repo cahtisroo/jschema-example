@@ -21,7 +21,7 @@ public class App {
             }  else {
                 ticker = "";
             }
-            return "<html><script type=\"text/javascript\" src=\"main.js\" ></script><link href=\"bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"><body onload=\"focusInput()\"><div class=\"container\"><h1 class=\"text-center\">JSchema Sample</h1><br><form><input type='text' id='ticker-input' class='form-control input-lg' name='ticker' placeholder=\"Enter a stock ticker...\" value='" + ticker + "'/></form><hr/><pre>" + result + "</pre></div></body></html>";
+            return "<html><title>JSchema Sample</title><script type=\"text/javascript\" src=\"main.js\" ></script><link href=\"bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"><body onload=\"focusInput()\"><div class=\"container\"><h1 class=\"text-center\">JSchema Sample</h1><br><form><input type='text' id='ticker-input' class='form-control input-lg' name='ticker' placeholder=\"Enter a stock ticker...\" value='" + ticker + "'/></form><hr/><pre>" + result + "</pre></div></body></html>";
         } );
     }
 
