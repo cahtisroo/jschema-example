@@ -8,7 +8,6 @@ import static spark.Spark.*;
 import static spark.Spark.staticFileLocation;
 
 public class App {
-
     public static void main(String[] args) {
         staticFileLocation("public");
         port(getHerokuAssignedPort());
@@ -18,16 +17,14 @@ public class App {
             if(ticker != null)  {
                 String urlStr = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+ticker+"%22)%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json";
                 result = getContent( urlStr );
-            }  else {
+            } else {
                 ticker = "";
             }
-            return "<html><link href=\"main.css\" rel=\"stylesheet\" type=\"text/css\"><body><h1>Enter a stock ticker:</h1><form><input type='text' class='tickerBox' name='ticker' value='" + ticker + "'/><button class='submitButton'>Submit</button></form><hr/><pre>" + result + "</pre></body></html>";
+            return "<html><iframe src=\"main.html\"></iframe></html>";
         } );
     }
 
-
-    private static String getContent( String urlStr ) throws IOException
-    {
+    private static String getContent( String urlStr ) throws IOException {
         String result;
         URL url = new URL( urlStr );
         InputStream in = (InputStream)url.getContent();
@@ -36,13 +33,13 @@ public class App {
         String read;
         String ex;
 
-        while((read=br.readLine()) != null) {
+        while ((read=br.readLine()) != null) {
             //System.out.println(read);
             sb.append(read);
         }
 
         br.close();
-        result =  sb.toString();
+        result = sb.toString();
         return result;
     }
 
@@ -53,5 +50,4 @@ public class App {
         }
         return 4567;
     }
-
 }
