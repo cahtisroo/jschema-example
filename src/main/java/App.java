@@ -21,13 +21,11 @@ public class App {
             }  else {
                 ticker = "";
             }
-            return "<html><link href=\"bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"><div class=\"container\"><h1>Enter a stock ticker:</h1><form><input type='text' class='tickerBox' name='ticker' value='" + ticker + "'/><button class='submitButton'>Submit</button></form><hr/><pre>" + result + "</pre></div></html>";
+            return "<html><link href=\"bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"><div class=\"container\"><h1>Enter a stock ticker:</h1><form><input type='text' class='form-control' name='ticker' placeholder=\"Enter a stock ticker...\" value='" + ticker + "'/><button class=\"btn btn-default\">Submit</button></form><hr/><pre>" + result + "</pre></div></html>";
         } );
     }
 
-
-    private static String getContent( String urlStr ) throws IOException
-    {
+    private static String getContent(String urlStr) throws IOException {
         String result;
         URL url = new URL( urlStr );
         InputStream in = (InputStream)url.getContent();
