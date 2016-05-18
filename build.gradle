@@ -4,7 +4,13 @@ apply plugin: 'application'
 archivesBaseName = "jschema-example"
 version = '1.0'
 applicationName = "jschema-example"
-mainClassName = "App"
+mainClassName = "org.jschema.sample.App"
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.jschema.sample.App'
+    }
+}
 
 repositories {
  mavenCentral()

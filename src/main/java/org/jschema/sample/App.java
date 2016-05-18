@@ -1,4 +1,4 @@
-package com.jschema.sample;
+package org.jschema.sample;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,8 +21,7 @@ public class App {
                 String urlString = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+ticker+"%22)%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json";
                 json = getContent(urlString);
 
-                YahooFinance finance = new YahooFinance();
-                finance.parse(json);
+                YahooFinance finance = YahooFinance.parse(json);
 
                 YahooFinance.Query query = finance.getquery();
                 YahooFinance.Query.Results results = query.getresults();

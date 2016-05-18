@@ -1,7 +1,7 @@
-package com.jschema.sample;
+package org.jschema.sample;
 import java.util.*;
 
-public class YahooFinance{
+public class YahooFinance {
   private Map<String, Object> _fields = new HashMap<String, Object>();
 
   public static YahooFinance parse(String jsonString){
