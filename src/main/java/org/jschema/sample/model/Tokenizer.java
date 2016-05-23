@@ -1,7 +1,7 @@
-package org.jschema.sample;
+package org.jschema.sample.model;
 import java.util.ArrayList;
 import java.util.List;
-import org.jschema.sample.Token.TokenType;
+import org.jschema.sample.model.Token.TokenType;
 
 public class Tokenizer {
   private String _string;

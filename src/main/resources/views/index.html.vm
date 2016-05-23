@@ -1,0 +1,26 @@
+<form id="form" ic-post-to="/" ic-target="#main" autocomplete="off">
+  <input type='text' id='ticker-input' class='form-control input-lg' name='ticker'
+         placeholder="Enter a stock ticker..."/>
+</form>
+
+<hr/>
+
+#if ( $tickers.size() > 0 )
+<table class="table">
+  <thead>
+  <tr>
+    <th>Ticker</th>
+    <th>Price/Change</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  #foreach( $ticker in $tickers )
+    #parse("/views/ticker_row.html.vm")
+  #end
+  </tbody>
+</table>
+<a ic-target="#main" ic-delete-from="/"><i>Clear All</i></a>
+#else
+<h3 class="">No tickers added...</h3>
+#end

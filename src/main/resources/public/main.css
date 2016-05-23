@@ -1,79 +1,10 @@
 /* CSS style sheet for spark app */
 
-
-h1{
-	font-size: 20px;
-	color: black;
+body {
+  font-family: 'Open Sans', sans-serif !important;
 }
 
-h1.sansserif{
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-}
-
-input[type=text]{
-	outline: none;
-	position: static;
-	border: 1px solid
-	font-size: 25px;
-}
-
-.submitButton{
-	border: 1px solid #ccc;
-	border-radius: 12px;
-	height: 35px;
-	background-color: white;
-	cursor: pointer;
-}
-
-.submitButton:hover{
-	background-color: #4CAF50;
-	color: white;
-	transition-duration: 0.4s;
-	cursor: pointer;	
-}
-
-
-.tickerBox{
-	width: 300px;
-	height: 35px;
-	padding: 2px;
-	border-radius: 15px;
-	margin: 0 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-select,textarea,input.title,input.text,input[type=password],input[type=text] {
-    background:#fff;
-    border:1px solid #e0e0e0 !important
-}
-
-select:focus,textarea:focus,input.title:focus,input.text:focus,input[type=password]:focus,input[type=text]:focus {
-    border-color:#666
-}
-
-label,input.title,input.text,input[type=password],input[type=text],textarea {
-    padding:12px
-}
-
-label,input.title,input.text,input[type=password],input[type=text] {
-    line-height:1.2
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
 }

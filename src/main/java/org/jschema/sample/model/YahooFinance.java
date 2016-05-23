@@ -1,4 +1,4 @@
-package org.jschema.sample;
+package org.jschema.sample.model;
 import java.util.*;
 
 public class YahooFinance {

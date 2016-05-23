@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>JSchema Sample</title>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//intercoolerreleases-leaddynocom.netdna-ssl.com/intercooler-0.9.6.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.5/jquery.jgrowl.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.5/jquery.jgrowl.css">
+
+</head>
+<body>
+
+<div class="container"><h1 class="text-center">JSchema Tickerwatch <i class="fa fa-binoculars" aria-hidden="true"></i></h1><br>
+  <div id="main">
+    $content
+  </div>
+</div>
+</body>
+</html>

@@ -1,8 +1,6 @@
-package org.jschema.sample;
+package org.jschema.sample.model;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.jschema.sample.Token.TokenType;
-import static org.jschema.sample.Token.TokenType.*;
 
 public class Parser
 {
@@ -22,7 +20,7 @@ public class Parser
 
   public Object parse() {
     Object value = parseValue();
-    if( match( EOF ) )
+    if( match( Token.TokenType.EOF ) )
     {
       return value;
     }
@@ -35,43 +33,43 @@ public class Parser
   public Object parseValue()
   {
 
-    if( match( LCURLY ) )
+    if( match( Token.TokenType.LCURLY ) )
     {
       nextToken();
       return parseObject();
     }
 
     // parse arrays
-    if( match( LSQUARE ) )
+    if( match( Token.TokenType.LSQUARE ) )
     {
       nextToken();
       return parseArray();
     }
 
-    if( match( TRUE ) )
+    if( match( Token.TokenType.TRUE ) )
     {
       nextToken();
       return true;
     }
 
-    if( match( FALSE ) )
+    if( match( Token.TokenType.FALSE ) )
     {
       nextToken();
       return false;
     }
-    if( match( NULL ) )
+    if( match( Token.TokenType.NULL ) )
     {
       nextToken();
       return null;
     }
 
-    if( match( STRING ) )
+    if( match( Token.TokenType.STRING ) )
     {
       String tokenValue = _currentToken.getTokenValue();
       nextToken();
       return tokenValue;
     }
-    if( match( NUMBER ) )
+    if( match( Token.TokenType.NUMBER ) )
     {
       String tokenValue = _currentToken.getTokenValue();
       double tokenNum = _currentToken.getTokenNumberValue();
@@ -94,12 +92,12 @@ public class Parser
   public Object parseObject() {
     HashMap<String, Object> map = new HashMap();
 
-    if(match(STRING)) {
+    if(match( Token.TokenType.STRING)) {
       parseMember(map);
     }
-    while (match(COMMA)) {
+    while (match( Token.TokenType.COMMA)) {
       nextToken();
-      if (match(STRING)) {
+      if (match( Token.TokenType.STRING)) {
         parseMember(map);
       }
       else{
@@ -107,7 +105,7 @@ public class Parser
         return error();
       }
     }
-    if (match(RCURLY)){
+    if (match( Token.TokenType.RCURLY)){
       nextToken();
       return map;
     }
@@ -124,7 +122,7 @@ public class Parser
 
     key = _currentToken.getTokenValue();
     nextToken();
-    if(match(COLON)){
+    if(match( Token.TokenType.COLON)){
       nextToken();
       obj = parseValue();
       if(obj instanceof Error){
@@ -145,19 +143,19 @@ public class Parser
   public Object parseArray()
   {
     ArrayList list = new ArrayList();
-    if(match(RSQUARE)){
+    if(match( Token.TokenType.RSQUARE)){
       nextToken();
       return list;
     }
     list.add(parseValue());
-    while (match(COMMA)) {
+    while (match( Token.TokenType.COMMA)) {
       nextToken();
-      if(match(RSQUARE)){
+      if(match( Token.TokenType.RSQUARE)){
         parseError();
       }
       list.add(parseValue());
     }
-    if(match(RSQUARE)) {
+    if(match( Token.TokenType.RSQUARE)) {
       nextToken();
       return list;
     }
@@ -175,7 +173,7 @@ public class Parser
     _currentToken = _tokenizer.next();
   }
 
-  private boolean match( TokenType type )
+  private boolean match( Token.TokenType type )
   {
     return _currentToken.getTokenType() == type;
   }

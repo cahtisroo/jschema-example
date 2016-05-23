@@ -1,10 +1,9 @@
-function pageLoaded() {
-	// Focus input field
-	var input = document.getElementById('ticker-input');
-	input.focus();
-	input.select();
+$(function(){
+  $('body').on('applicationError', function(elt, msg){
+    $.jGrowl(msg, { header: 'ERROR' });
+  });
+})
 
-	// Disable autocomplete
-	var form = document.getElementById('form');
-	form.setAttribute('autocomplete','off');
-}
+Intercooler.ready(function(){
+  $("#ticker-input").focus()
+})

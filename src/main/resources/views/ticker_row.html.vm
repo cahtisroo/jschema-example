@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <strong>$ticker.symbol</strong>
+  </td>
+  <td width="120px">
+    $helper.formatDoubleString($ticker.ask) / $helper.formatDoubleString($ticker.change)
+  </td>
+  <td width="30px">
+    <a ic-target="#main" ic-delete-from="/$ticker.symbol">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </a>
+  </td>
+</tr>
