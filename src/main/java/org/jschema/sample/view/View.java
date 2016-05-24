@@ -4,6 +4,7 @@ package org.jschema.sample.view;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.jschema.sample.model.YahooFinance;
 
 import java.io.StringWriter;
 import java.text.DecimalFormat;
@@ -61,6 +62,10 @@ public class View
     }
 
     public String arrow(String doubleString) {
+      if( doubleString == null )
+      {
+        return "";
+      }
       String val = neg( doubleString ) ? "down" : "up";
       return "<i class=\"fa fa-caret-"+ val +"\" aria-hidden=\"true\"></i>";
     }
@@ -77,13 +82,23 @@ public class View
     }
 
     public boolean neg( String doubleString) {
-      return doubleString.indexOf( '-' ) >= 0;
+      return doubleString != null && doubleString.indexOf( '-' ) >= 0;
+    }
+
+    public boolean isUp( YahooFinance.Query.Results.Quote quote, Map states)
+    {
+      return states != null && states.get( quote.getsymbol() ) == "up";
+    }
+
+    public boolean isDown( YahooFinance.Query.Results.Quote quote, Map states)
+    {
+      return states != null && states.get( quote.getsymbol() ) == "down";
     }
 
     public String formatDoubleString(String doubleString) {
       if( doubleString == null )
       {
-        return "";
+        return "-";
       }
       else
       {

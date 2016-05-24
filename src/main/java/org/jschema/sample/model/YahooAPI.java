@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class YahooAPI
 {
@@ -23,6 +26,14 @@ public class YahooAPI
     return quote;
   }
 
+  public static boolean areMarketsOpen() {
+    TimeZone gmt = TimeZone.getTimeZone( "GMT" );
+    Calendar instance = Calendar.getInstance();
+    instance.setTimeZone( gmt );
+    int hours = instance.getTime().getHours();
+    return 13 >= hours && hours <= 20;
+  }
+
   private static String getContent( String urlStr ) throws IOException
   {
     String result;
@@ -31,7 +42,6 @@ public class YahooAPI
     StringBuilder sb = new StringBuilder();
     BufferedReader br = new BufferedReader( new InputStreamReader( in ) );
     String read;
-    String ex;
 
     while( (read = br.readLine()) != null )
     {
@@ -42,5 +52,4 @@ public class YahooAPI
     result = sb.toString();
     return result;
   }
-
 }

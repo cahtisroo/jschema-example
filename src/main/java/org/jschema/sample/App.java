@@ -6,9 +6,11 @@ import org.jschema.sample.view.View;
 import spark.Request;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.*;
 import static spark.Spark.staticFileLocation;
@@ -31,14 +33,22 @@ public class App
     //============================================================
     get( "/", ( req, res ) -> {
       List<YahooFinance.Query.Results.Quote> tickers = getTickersList( req );
-      refreshTickers(tickers);
+      Map states = null;
+      if( YahooAPI.areMarketsOpen() )
+      {
+        states = refreshTickers( tickers );
+      }
       if( "true".equals( req.queryParams( "ic-request" ) ) )
       {
-        return View.renderRaw( "index.html.vm", "tickers", tickers );
+        return View.renderRaw( "ticker_table.html.vm",
+                               "tickers", tickers,
+                               "states", states );
       }
       else
       {
-        return View.renderPage( "index.html.vm", "tickers", tickers );
+        return View.renderPage( "index.html.vm",
+                                "tickers", tickers,
+                                "states", states);
       }
     } );
 
@@ -99,20 +109,25 @@ public class App
   //============================================================
   // Ticker List Management
   //============================================================
-  private static void addTicker( String ticker, List tickers ) throws IOException
+  private static Map refreshTickers( List<YahooFinance.Query.Results.Quote> tickers ) throws IOException
   {
-    if( !ticker.isEmpty() ){
-      tickers.add( 0, YahooAPI.getQuote( ticker ) );
-    }
-  }
-
-  private static void refreshTickers( List<YahooFinance.Query.Results.Quote> tickers ) throws IOException
-  {
+    HashMap<Object, Object> map = new HashMap<>();
     for( int i = 0; i < tickers.size(); i++ )
     {
       YahooFinance.Query.Results.Quote quote = tickers.get( i );
-      tickers.set( i, YahooAPI.getQuote( quote.getsymbol() ) );
+      YahooFinance.Query.Results.Quote newQuote = YahooAPI.getQuote( quote.getsymbol() );
+      double oldAsk = Double.parseDouble( quote.getAsk() );
+      double newAsk = Double.parseDouble( newQuote.getAsk() );
+      if( oldAsk < newAsk ) {
+        map.put( quote.getsymbol(), "up" );
+      }
+      else if( oldAsk > newAsk )
+      {
+        map.put( quote.getsymbol(), "down" );
+      }
+      tickers.set( i, newQuote );
     }
+    return map;
   }
 
   private static List<YahooFinance.Query.Results.Quote> getTickersList( Request req )

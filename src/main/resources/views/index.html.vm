@@ -6,22 +6,8 @@
 <hr/>
 
 #if ( $tickers.size() > 0 )
-<table class="table">
-  <thead>
-  <tr>
-    <th>Ticker</th>
-    <th>Price</th>
-    <th>Change</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  #foreach( $ticker in $tickers )
-    #parse("/views/ticker_row.html.vm")
-  #end
-  </tbody>
-</table>
-<a ic-target="#main" ic-delete-from="/"><i>Clear All</i></a>
+  #parse("/views/ticker_table.html.vm")
+  <a ic-target="#main" ic-delete-from="/"><i>Clear All</i></a>
 #else
-<h3 class="">No tickers added...</h3>
+  <h3 class="">No tickers added...</h3>
 #end

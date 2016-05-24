@@ -18,3 +18,16 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 1s;
 }
 
+.ask {
+  color: initial;
+  transition all 1s ease;
+}
+
+.ask.up.color {
+  color: green;
+}
+
+.ask.down.color {
+  color: red;
+}
+

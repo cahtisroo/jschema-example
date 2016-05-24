@@ -1,0 +1,33 @@
+<table class="table">
+  <thead ic-trigger-on="load" ic-trigger-delay="5s" ic-src="/" ic-target="closest table" ic-replace-target="true">
+  <tr>
+    <th>Ticker</th>
+    <th>Price</th>
+    <th>Change</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  #foreach( $ticker in $tickers )
+  <tr class="#if($newticker == $ticker.symbol)new-ticker#end">
+    <td>
+      <strong>$ticker.symbol</strong>
+    </td>
+    <td width="100px" class="ask #if($helper.isUp($ticker, $states))up#elseif($helper.isDown($ticker, $states))down#end color" ic-remove-class="color:500ms">
+      &dollar;$helper.formatDoubleString($ticker.ask)
+    </td>
+    <td width="80px">
+    <span $helper.textClass($ticker.change)>
+      $helper.arrow($ticker.change)
+      $helper.formatDoubleString($ticker.change)
+    </span>
+    </td>
+    <td width="30px">
+      <a ic-target="#main" ic-delete-from="/$ticker.symbol">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+    </td>
+  </tr>
+  #end
+  </tbody>
+</table>
