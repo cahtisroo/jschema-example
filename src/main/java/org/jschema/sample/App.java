@@ -69,7 +69,7 @@ public class App
           res.header( "X-IC-Trigger", "{\"applicationError\":[\"Ticker Not Valid!\"]}" );
         }
       }
-      return View.renderRaw( "index.html.vm", "tickers", tickers );
+      return View.renderRaw( "index.html.vm", "tickers", tickers, "newticker", ticker );
     } );
 
     delete( "/", ( req, res ) -> {
