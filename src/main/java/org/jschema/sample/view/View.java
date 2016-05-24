@@ -60,6 +60,26 @@ public class View
       return View.renderRaw( templateName, args );
     }
 
+    public String arrow(String doubleString) {
+      String val = neg( doubleString ) ? "down" : "up";
+      return "<i class=\"fa fa-caret-"+ val +"\" aria-hidden=\"true\"></i>";
+    }
+
+    public String textClass(String doubleString) {
+      if( neg( doubleString ) )
+      {
+        return "class='text-danger'";
+      }
+      else
+      {
+        return "class='text-success'";
+      }
+    }
+
+    public boolean neg( String doubleString) {
+      return doubleString.indexOf( '-' ) >= 0;
+    }
+
     public String formatDoubleString(String doubleString) {
       if( doubleString == null )
       {

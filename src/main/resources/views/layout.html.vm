@@ -17,7 +17,13 @@
 </head>
 <body>
 
-<div class="container"><h1 class="text-center">JSchema Tickerwatch <i class="fa fa-binoculars" aria-hidden="true"></i></h1><br>
+<div class="container">
+  <h1 class="text-center">
+    <span class="text-info">JSchema</span>
+    <span class="text-success">Tickerwatch</span>
+    <i class="text-muted fa fa-binoculars" aria-hidden="true"></i>
+  </h1>
+  <br>
   <div id="main">
     $content
   </div>

@@ -32,7 +32,14 @@ public class App
     get( "/", ( req, res ) -> {
       List<YahooFinance.Query.Results.Quote> tickers = getTickersList( req );
       refreshTickers(tickers);
-      return View.renderPage( "index.html.vm", "tickers", tickers );
+      if( "true".equals( req.queryParams( "ic-request" ) ) )
+      {
+        return View.renderRaw( "index.html.vm", "tickers", tickers );
+      }
+      else
+      {
+        return View.renderPage( "index.html.vm", "tickers", tickers );
+      }
     } );
 
     post("/", ( req, res ) -> {

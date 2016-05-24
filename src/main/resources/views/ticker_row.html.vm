@@ -2,8 +2,14 @@
   <td>
     <strong>$ticker.symbol</strong>
   </td>
-  <td width="120px">
-    $helper.formatDoubleString($ticker.ask) / $helper.formatDoubleString($ticker.change)
+  <td width="100px">
+    &dollar;$helper.formatDoubleString($ticker.ask)
+  </td>
+  <td width="80px">
+    <span $helper.textClass($ticker.change)>
+      $helper.arrow($ticker.change)
+      $helper.formatDoubleString($ticker.change)
+    </span>
   </td>
   <td width="30px">
     <a ic-target="#main" ic-delete-from="/$ticker.symbol">

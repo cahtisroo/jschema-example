@@ -10,7 +10,8 @@
   <thead>
   <tr>
     <th>Ticker</th>
-    <th>Price/Change</th>
+    <th>Price</th>
+    <th>Change</th>
     <th></th>
   </tr>
   </thead>
