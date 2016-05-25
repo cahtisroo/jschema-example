@@ -6,7 +6,9 @@
 <hr/>
 
 #if ( $tickers.size() > 0 )
-  #parse("/views/ticker_table.html.vm")
+  <div id="table-container">
+    #parse("/views/ticker_table.html.vm")
+  </div>
   <a ic-target="#main" ic-delete-from="/"><i>Clear All</i></a>
 #else
   <h3 class="">No tickers added...</h3>

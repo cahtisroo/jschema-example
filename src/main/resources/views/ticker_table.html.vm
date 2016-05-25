@@ -1,5 +1,5 @@
 <table class="table">
-  <thead ic-trigger-on="load" ic-trigger-delay="5s" ic-src="/" ic-target="closest table" ic-replace-target="true">
+  <thead ic-trigger-on="load" ic-trigger-delay="5s" ic-src="/" ic-target="#table-container">
   <tr>
     <th>Ticker</th>
     <th>Price</th>
@@ -13,7 +13,7 @@
     <td>
       <strong>$ticker.symbol</strong>
     </td>
-    <td width="100px" class="ask #if($helper.isUp($ticker, $states))up#elseif($helper.isDown($ticker, $states))down#end color" ic-remove-class="color:500ms">
+    <td width="100px" class="ask #if($helper.isUp($ticker, $states))up#elseif($helper.isDown($ticker, $states))down#end">
       &dollar;$helper.formatDoubleString($ticker.ask)
     </td>
     <td width="80px">

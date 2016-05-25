@@ -19,14 +19,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ask {
-  color: initial;
-  transition all 1s ease;
+  color: rgb(51, 51, 51);
+  transition: all 2s ease;
 }
 
-.ask.up.color {
+.ic-transitioning .ask.up {
   color: green;
 }
 
-.ask.down.color {
+.ic-transitioning .ask.down {
   color: red;
 }
