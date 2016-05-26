@@ -6,7 +6,7 @@
 <hr/>
 
 #if ( $tickers.size() > 0 )
-  <div id="table-container">
+  <div ic-poll="5s" ic-src="/">
     #parse("/views/ticker_table.html.vm")
   </div>
   <a ic-target="#main" ic-delete-from="/"><i>Clear All</i></a>

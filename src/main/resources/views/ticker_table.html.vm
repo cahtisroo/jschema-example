@@ -1,5 +1,5 @@
 <table class="table">
-  <thead ic-trigger-on="load" ic-trigger-delay="5s" ic-src="/" ic-target="#table-container">
+  <thead>
   <tr>
     <th>Ticker</th>
     <th>Price</th>
